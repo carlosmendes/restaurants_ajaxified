@@ -22,4 +22,8 @@ Restaurant.create!({
   name: "Adega das Gravatas",
   address: "Travessa Pregoeiro 15, Lisbon, Portugal"
 })
+Restaurant.create!({
+  name: "Come Prima",
+  address: "R. Olival 258, Lisbon, Portugal"
+})
 puts 'Finished!'

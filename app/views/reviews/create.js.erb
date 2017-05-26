@@ -1,0 +1,21 @@
+// check if we have errors on the review
+<% if @review.errors.any? %>
+  // reload the form with the errors
+  $('#new_review').html("<%= j render 'reviews/form', restaurant: @restaurant, review: @review %>");
+<% else %>
+
+  // refresh the reviews counter
+  $('#reviews_counter').html("<%= j pluralize(@restaurant.reviews.size, 'review') %>");
+
+  // build the new review paragraph
+  var new_review = $("<%= j render 'reviews/show', review: @review %>").hide();
+  // add it to the list
+  $('#reviews').append(new_review);
+
+  new_review.slideDown();
+
+
+  // reset the form
+  $('#new_review').html("<%= j render 'reviews/form', restaurant: @restaurant, review: Review.new %>");
+
+<% end %>

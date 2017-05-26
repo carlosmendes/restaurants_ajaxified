@@ -1,7 +1,7 @@
 <h1><%= @restaurant.name %></h1>
-<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@restaurant.address}" %>
-<h2>
-  <%= pluralize @restaurant.reviews.size, "review" %>
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=11&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@restaurant.address}" %>
+<h2 id="reviews_counter">
+  <%= pluralize(@restaurant.reviews.size, "review") %>
 </h2>
 
 <div id="reviews">
@@ -13,3 +13,6 @@
     <% end %>
   <% end %>
 </div>
+
+
+<%= render 'reviews/form', restaurant: @restaurant, review: @review %>
